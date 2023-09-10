@@ -1,0 +1,1 @@
+PGPASSWORD=b39Sgof4BRhgNg8jjsGpsJM5LMEOiznk psql -h dpg-cjn75ethe99c73e46rhg-a.oregon-postgres.render.com -U helsinki helsinki
