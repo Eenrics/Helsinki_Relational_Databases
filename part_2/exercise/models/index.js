@@ -1,8 +1,13 @@
 const Blog = require('./blog')
+const User = require('./user')
 
-// Blog.truncate()
-Blog.sync()
+User.hasMany(Blog)
+Blog.belongsTo(User)
+
+User.sync({alter: true})
+Blog.sync({alter: true})
 
 module.exports = {
-  Blog
+  Blog,
+  User
 }
