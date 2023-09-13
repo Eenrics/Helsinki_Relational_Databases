@@ -1,11 +1,11 @@
 {
-  "name": "exercise",
+  "name": "helsinki_relational_databases",
   "version": "1.0.0",
   "description": "",
-  "main": "cli.js",
+  "main": "index.js",
   "scripts": {
     "dev": "nodemon index.js",
-    "cli": "nodemon cli.js"
+    "start": "node index.js"
   },
   "author": "",
   "license": "ISC",
@@ -15,8 +15,8 @@
   "dependencies": {
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
+    "express-async-errors": "^3.1.1",
     "pg": "^8.11.3",
-    "pq": "^0.0.3",
     "sequelize": "^6.33.0"
   }
 }

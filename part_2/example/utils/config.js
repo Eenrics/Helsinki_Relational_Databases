@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 const POSTGRES_USERNAME = process.env.POSTGRES_USERNAME
 const POSTGRES_PASSWORD = process.env.POSTGRES_PASSWORD
 const POSTGRES_HOSTURL = process.env.POSTGRES_HOSTURL
