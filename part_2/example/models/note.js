@@ -17,6 +17,12 @@ Note.init({
   important: {
     type: DataTypes.BOOLEAN
   },
+  // /*** THIS IS OPTIONAL AS SEQUELIZE ITSELF CREATES FOR US (BECAUSE WE SPECIFIED ONE TO MANY RELATION IN INDEX PAGE). THIS IS UNNECESSARY ***/
+  // userId: {
+  //   type: DataTypes.INTEGER,
+  //   allowNull: false,
+  //   references: { model: 'users', key: 'id' },
+  // },
   date: {
     type: DataTypes.DATE
   }
