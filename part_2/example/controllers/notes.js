@@ -1,16 +1,30 @@
 const router = require('express').Router()
 const jwt = require('jsonwebtoken')
+const {Op} = require('sequelize')
 
 const { Note, User } = require('../models')
 const { SECRET } = require('../utils/config')
 
 router.get('/', async (req, res) => {
+  const where = {}
+
+  if (req.query.important) {
+    where.important = req.query.important === "true"
+  }
+
+  if (req.query.search) {
+    where.content = {
+      [Op.substring]: req.query.search
+    }
+  }
+
   const notes = await Note.findAll({
     attributes: {exclude: ['userId']},
     include: {
       model: User,
       attributes: ['name']
-    }
+    },
+    where
   })
   res.json(notes)
 })

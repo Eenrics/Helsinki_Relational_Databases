@@ -15,7 +15,8 @@ Note.init({
     allowNull: false
   },
   important: {
-    type: DataTypes.BOOLEAN
+    type: DataTypes.BOOLEAN,
+    allowNull: false,
   },
   // /*** THIS IS OPTIONAL AS SEQUELIZE ITSELF CREATES FOR US (BECAUSE WE SPECIFIED ONE TO MANY RELATION IN INDEX PAGE). THIS IS UNNECESSARY ***/
   // userId: {
