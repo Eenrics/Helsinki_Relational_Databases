@@ -7,3 +7,5 @@ insert into memberships (user_id, team_id) values (1, 1);
 insert into memberships (user_id, team_id) values (1, 2);
 insert into memberships (user_id, team_id) values (2, 1);
 insert into memberships (user_id, team_id) values (3, 2);
+insert into user_notes (user_id, note_id) values (1, 4);
+insert into user_notes (user_id, note_id) values (1, 5);
