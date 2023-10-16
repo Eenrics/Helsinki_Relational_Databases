@@ -18,4 +18,9 @@ const tokenExtractor = (req, res, next) => {
     next()
   }
 
-module.exports = { tokenExtractor }
+  const blogFinder = async (req, res, next) => {
+    req.blog = await Blog.findByPk(req.params.id)
+    next()
+  }
+
+module.exports = { tokenExtractor, blogFinder }
