@@ -1,13 +1,17 @@
 const jwt = require('jsonwebtoken')
 const { SECRET } = require('./config')
+const Session = require('../models/sessions')
 
-
-const tokenExtractor = (req, res, next) => {
+const tokenExtractor = async (req, res, next) => {
     const authorization = req.get('authorization')
     if (authorization && authorization.toLowerCase().startsWith('bearer ')) {
       try {
         console.log(authorization.substring(7), SECRET)
-        req.decodedToken = jwt.verify(authorization.substring(7), SECRET)
+        const rawToken = authorization.substring(7)
+        const decodedToken = jwt.verify(rawToken, SECRET)
+        const session = await Session.findOne({"user_id": decodedToken.id})
+        if (!session || !session.token || session.token !== rawToken) return res.status(401).json({ error: 'token invalid' })
+        req.decodedToken = decodedToken
       } catch (error) {
         console.log(error)
         return res.status(401).json({ error: 'token invalid' })
